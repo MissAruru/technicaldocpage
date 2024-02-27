@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+     <!-- Nav Bar -->
+    <nav id="navbar">
+        <header id="titulo">JS Documentation</header>
+        <ul>
+          <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+          <li>
+            <a class="nav-link" href="#Authentication"
+              >Authentication</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="#Connected_Accounts"
+              >Connected Accounts</a
+            >
+          </li>
+          <li><a class="nav-link" href="#Errors">Errors</a></li>
+          <li><a class="nav-link" href="#Expanding_Responses">Expanding Responses</a></li>
+          
+        </ul>
+        <form>
+            <input type="search" name="searchp" placeholder="Buscar" />
+            <input type="submit" value="Find" />
+          </form>
+        </nav>
+      </nav>
+       <!-- All the info -->
+      <main id="main-doc">
+        <section class="main-section" id="Introduction" a href="#Introduction">
+          <header>Introduction</header>
+          
+            <p>The Stripe API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.</p>
+            <p>You can use the Stripe API in test mode, which doesn't affect your live data or interact with the banking networks. The API key you use to authenticate the request determines whether the request is live mode or test mode.</p>
+            <p>The Stripe API doesn't support bulk updates. You can work on only one object per request.</p>
+            <p>The Stripe API differs for every account as we release new versions and tailor functionality. Log in to see docs customized to your version of the API, with your test key and data.</p>
+          
+            <div class="method-example-request"><div class="method-example-request-topbar"><div class="method-example-request-title IntroSection-topbar-title">Base URL</div></div><pre class="IntroSection-pre"><code>https://api.stripe.com</code></pre></div>
+      
+            <div class="divisor"></div>
+
+        <section class="main-section" id="Authentication" a href="#Authentication">
+            <header>Authentication</header>
+            <article>
+              <p>The Stripe API uses <a href="/docs/keys">API keys</a> to authenticate requests. You can view and manage your API keys in <a href="/login?redirect=/account/apikeys">the Stripe Dashboard</a>.</p>
+              <p>Test mode secret keys have the prefix <code>sk_test_</code> and live mode secret keys have the prefix <code>sk_live_</code>. Alternatively, you can use <a href="/docs/keys#limiting-access-with-restricted-api-keys">restricted API keys</a> for granular permissions.</p>
+              <p>Your API keys carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.</p>
+              <p>Authentication to the API is performed via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>. Provide your API key as the basic auth username value. You do not need to provide a password.</p>
+              <p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use <code>-H "Authorization: Bearer sk_test_4eC39HqLyjWDarjtT1zdp7dc"</code> instead of <code>-u sk_test_4eC39HqLyjWDarjtT1zdp7dc</code>.</p>
+            </article>
+          </section>
+          <div class="divisor"></div>
+          <section class="main-section" id="Connected_Accounts" a href="#Connected_Accounts"></a>
+            <header>Connected Accounts</header>
+            <p>Clients can make requests as connected accounts using the special header <code>Stripe-Account</code> which should contain a Stripe account ID (usually starting with the prefix <code>acct_</code>).</p>
+          
+          </section>
+          <div class="divisor"></div>
+          <section class="main-section" id="Errors" a href="#Errors"></a>
+            <header>Errors</header>
+              <p>
+              Stripe uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the 5xx range indicate an error with Stripe's servers (these are rare).
+
+             Some 4xx errors that could be handled programmatically (e.g., a card is declined) include an error code that briefly explains the error reported.
+            </p>
+            <li>Type string</li>
+            <li>Code string</li>
+            <li>Decline string</li>
+            <li>Message string</li>
+            <li>Param string</li>
+          </section>
+          <div class="divisor"></div>
+
+          <section class="main-section" id="Expanding_Responses" a href="#Expanding_Responses"></a>
+            <header>Expanding Responses</header>
+            
+              <p>Many objects allow you to request additional information as an expanded response by using the <code>expand</code> request parameter. This parameter is available on all API requests, and applies to the response of that request only. Responses can be expanded in two ways.</p>
+              <p>In many cases, an object contains the ID of a related object in its response properties. For example, a <code>Charge</code> may have an associated <code>Customer</code> ID. Those objects can be expanded inline with the <code>expand</code> request parameter. ID fields that can be expanded into objects are noted in this documentation with the<code>expandable</code> label.</p>
+              <p>In some cases, such as the Issuing Card object's <code>number</code> and <code>cvc</code> fields, there are available fields that are not included in responses by default. You can request these fields as an expanded response by using the <code>expand</code> request parameter. Fields that can be included in an expanded response are noted in this documentation with the <code>expandable</code> label.</p>
+            </section>
+
+          <div class="divisor"></div>
+        
+        <aside>
+            <h2>Related</h2>
+    
+            <ul>
+              <li><a href="https://stripe.com/docs/api/balance">Code resources</a></li>
+              <li><a href="https://stripe.com/docs/api/balance_transactions">Balance transactions</a></li>
+            </ul>
+          </aside>
+    
+        <!-- Footer -->
+    
+        <footer>
+          <p>Technical Documentation Page for FreeCodeCamp </p>
+        </footer>
+      </body>
+    </html>
+</body>
+</html>
